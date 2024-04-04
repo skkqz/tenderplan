@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from config import cookies, headers
 from celery_settings import app
 
-
 @app.task
 def get_links_to_printable_form() -> list[str]:
     """Получить ссылки на печатную форму закупки"""

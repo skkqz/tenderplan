@@ -1,12 +1,13 @@
-from tasks import get_data_from_xml, get_links_to_printable_form
+from class_tasks import get_links_task, parsing_xml_task
 
 
 def main():
-    tasks = get_links_to_printable_form.delay()
-    t = tasks.get()
-    get_data_from_xml(t)
 
+    get_links = get_links_task.delay()
+    list_links = get_links.get()
+    parsing_xml_task(list_links)
 
 if __name__ == '__main__':
-    print('Start testing workflow...')
+
+    print('Start script')
     main()
